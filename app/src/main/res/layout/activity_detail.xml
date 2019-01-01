@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".DetailActivity"
+    android:isScrollContainer="true"
+    android:scrollbars="vertical">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:id="@+id/appbar">
+
+        <android.support.v7.widget.Toolbar
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:minHeight="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:id="@+id/toolbar_detail" />
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <ImageView
+        android:id="@+id/img_iconWisata"
+        android:layout_below="@id/appbar"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10pt"
+        android:layout_width="250dp"
+        android:layout_height="150dp"
+        android:src="@drawable/ic_image_black_24dp"/>
+
+    <TextView
+        android:id="@+id/tv_namaWisataDetail"
+        android:layout_below="@+id/img_iconWisata"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="8pt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nama Wisata"
+        android:textStyle="bold"
+        android:textSize="10pt"/>
+
+    <TextView
+        android:id="@+id/tv_alamatWisataDetail"
+        android:layout_below="@+id/tv_namaWisataDetail"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="10pt"
+        android:layout_marginLeft="10pt"
+        android:layout_marginRight="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Alamat Wisata"
+        android:textColor="@android:color/black"
+        android:textSize="8pt"/>
+
+    <com.uncopt.android.widget.text.justify.JustifiedTextView
+        android:id="@+id/tv_detailWisata"
+        android:layout_below="@id/tv_alamatWisataDetail"
+        android:layout_centerInParent="true"
+        android:layout_margin="10pt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:textColor="@android:color/black"/>
+
+
+</RelativeLayout>
+
+</ScrollView>
