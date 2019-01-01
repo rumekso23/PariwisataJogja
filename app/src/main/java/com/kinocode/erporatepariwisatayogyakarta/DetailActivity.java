@@ -44,10 +44,10 @@ public class DetailActivity extends AppCompatActivity {
 
         apiInterface = APIClient.getClient().create(APIInterface.class);
 
+        //parsing data dari recylerview ke halaman detai
         tvNamaWisata.setText(intent.getStringExtra("nama"));
         tvAlamatWisata.setText("Lokasi :  " + intent.getStringExtra("alamat"));
         tvDetailWisata.setText(intent.getStringExtra("detail"));
-
         Glide.with(this)
                 .load(intent.getStringExtra("icon"))
                 .into(imgIconWisata);

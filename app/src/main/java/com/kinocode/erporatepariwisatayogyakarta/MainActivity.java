@@ -70,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
         loadData();
     }
 
+
+    //Method untuk meload data dari JSON
     private void loadData(){
         Call<Pariwisata> apiservice = apiInterface.getPariwisataList();
         apiservice.enqueue(new Callback<Pariwisata>() {
@@ -102,12 +104,14 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    //menampilkan menu
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
+    //fungsi click di menu
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
@@ -140,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    //mehod sign out jika user ingin log out
     private void signOut(){
         mAuth.signOut();
 

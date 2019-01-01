@@ -71,12 +71,12 @@ public class LoginActivity extends AppCompatActivity {
 
         tvToRegister.setText(Html.fromHtml("<u>Didn't Have an Account ? Sgn Up</>"));
 
+        //Mengecek apakah user dalam keadaan login atau log out
         mAuth = FirebaseAuth.getInstance();
         if (mAuth.getCurrentUser() != null) {
             startActivity(new Intent(this, MainActivity.class));
             finish();
         }
-
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
@@ -85,12 +85,15 @@ public class LoginActivity extends AppCompatActivity {
                 }
             }
         };
+
+
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
+        //Link Menuju Halaman Register
         tvToRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -98,6 +101,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //Button login dengan email dan password
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,6 +121,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+        //Button Login dengan akun google
         btnGoogleSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -151,6 +156,7 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+    //Method autentikasi menggunakan Email dan Password
     private void firebaseAuthWithEmailPassword(String email, String password){
         mAuth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -170,6 +176,7 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    //Method autentiasi menggunakan Akun Google
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         mAuth.signInWithCredential(credential)

@@ -18,7 +18,7 @@
             <ImageView
                 android:id="@+id/img_pariwisata"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:src="@drawable/ic_image_black_24dp"/>
 
             <TextView

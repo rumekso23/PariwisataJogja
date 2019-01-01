@@ -13,6 +13,7 @@ public class SplashScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash_screen);
 
+        //Memuat waktu Splash Screen selama 3 detk
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
             @Override
